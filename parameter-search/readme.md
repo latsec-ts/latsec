@@ -1,6 +1,6 @@
 # Parameter search
 
-`LaTSEC-Parameter-Selection-v2.2-fixedtailbound.ipynb` selects the LaTSEC parameter sets of Section 7 (Tables 4 and 5) and estimates their concrete security.
+`LaTSEC-Parameter-Selection-v2.3-fixedtailbound+privacy.ipynb` selects the LaTSEC parameter sets of Section 7 (Tables 4 and 5), estimates their concrete security, and, in the section "Key-Privacy Check", rechecks the key-privacy conditions of SEC at ε = ε′ = 2^{-(κ+3)}, including the kernel-smoothing condition.
 
 - Lattice estimator: commit `27a581b` of https://github.com/malb/lattice-estimator.
 - Modulus: for each tuple, q is the largest prime below 2^b_q with q ≡ 1 (mod 2d) and q > 2B_MSIS + 1, where b_q = ⌈lg q⌉.
