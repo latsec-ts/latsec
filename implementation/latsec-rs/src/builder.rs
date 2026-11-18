@@ -16,7 +16,7 @@ use crate::profile::{
 };
 use crate::published::{self, PublishedRow};
 
-const NOTEBOOK: &str = "parameter-search/LaTSEC-Parameter-Selection-v2.2-fixedtailbound.ipynb";
+const NOTEBOOK: &str = "parameter-search/LaTSEC-Parameter-Selection-v2.3-fixedtailbound+privacy.ipynb";
 
 /// The identifier of the author profile for `(n, kappa)`.
 pub fn author_profile_id(n: usize, kappa: u32) -> String {
@@ -63,8 +63,8 @@ pub fn author_profile(matrix: &AuthorMatrix, row: &PublishedRow) -> Result<Profi
         recon_statistics: Some(ReconStatistics {
             observed_linf_max: geo.beta_lambda_observed,
             observed_weight_max: geo.omega_lambda_observed,
-            pipeline: "the SageMath pipeline of [44] (Sage LLL, passes = window = 2)".to_string(),
-            note: "Sampled maxima over the sets tested in [44]. The enforced bounds are beta_lambda = observed + 1 \
+            pipeline: "the SageMath pipeline of [46] (Sage LLL, passes = window = 2)".to_string(),
+            note: "Sampled maxima over the sets tested in [46]. The enforced bounds are beta_lambda = observed + 1 \
                    and omega_lambda slightly above the observed weight. Rejection rates under this crate's \
                    reconstruction algorithm must be measured separately."
                 .to_string(),
@@ -271,7 +271,7 @@ fn functional_profile(matrix: &AuthorMatrix, spec: &FunctionalSpec) -> Result<Pr
 ///   14, 10 at size 15 and 8 from size 16.
 const FUNCTIONAL_N10: FunctionalSpec = FunctionalSpec {
     id: "functional-n10-d16",
-    description: "Small functional fixture: a 10 x 6 SEC matrix of [44], ring degree 16",
+    description: "Small functional fixture: a 10 x 6 SEC matrix of [46], ring degree 16",
     d: 16,
     modulus_bits: 30,
     p: 2,
@@ -290,7 +290,7 @@ const FUNCTIONAL_N10: FunctionalSpec = FunctionalSpec {
 
 const FUNCTIONAL_N20: FunctionalSpec = FunctionalSpec {
     id: "functional-n20-d16",
-    description: "Small functional fixture: a 20 x 10 SEC matrix of [44], ring degree 16",
+    description: "Small functional fixture: a 20 x 10 SEC matrix of [46], ring degree 16",
     d: 16,
     modulus_bits: 31,
     p: 2,
@@ -309,7 +309,7 @@ const FUNCTIONAL_N20: FunctionalSpec = FunctionalSpec {
 
 const FUNCTIONAL_FULL_DEGREE: FunctionalSpec = FunctionalSpec {
     id: "functional-n20-d512",
-    description: "Full-degree functional fixture: a 20 x 10 SEC matrix of [44], d = 512, 66-bit prime, wide masks",
+    description: "Full-degree functional fixture: a 20 x 10 SEC matrix of [46], d = 512, 66-bit prime, wide masks",
     d: 512,
     modulus_bits: 66,
     p: 2,
@@ -326,7 +326,7 @@ const FUNCTIONAL_FULL_DEGREE: FunctionalSpec = FunctionalSpec {
          signature bound above 2^64 (66-bit response coefficients), with only 20 parties."],
 };
 
-/// The functional profiles, built from two small SEC matrices of [44].
+/// The functional profiles, built from two small SEC matrices of [46].
 pub fn functional_profiles(fixture_dir: impl AsRef<Path>) -> Result<Vec<Profile>> {
     let dir = fixture_dir.as_ref().join("author");
     let small = AuthorMatrix::load(dir.join("G-10-5-3.json"))?;
@@ -355,7 +355,7 @@ pub fn sec_only_profile_id(n: usize, kappa: u32) -> String {
     format!("sec-only-n{n}-k{kappa}-q32")
 }
 
-/// A standalone SEC parameter set of the SEC paper [44] (Table 7 there): leakage budget
+/// A standalone SEC parameter set of the SEC paper [46] (Table 7 there): leakage budget
 /// `Q = 2^64`, hard-core modulus `q = 2^32 - 10239`, `p = ell/2`.
 ///
 /// The profile has the shape of a LaTSEC profile so that the same code paths run,
@@ -390,12 +390,12 @@ pub fn sec_only_profile(matrix: &AuthorMatrix, row: &published::SecOnlyRow) -> R
         id: sec_only_profile_id(row.n, row.kappa),
         category: Category::SecOnly,
         description: format!(
-            "SEC alone, n = {}, kappa = {}, Q = 2^64, q = 2^32 - 10239: Table 7 of the SEC paper [44]",
+            "SEC alone, n = {}, kappa = {}, Q = 2^64, q = 2^32 - 10239: Table 7 of the SEC paper [46]",
             row.n, row.kappa
         ),
         provenance: vec![
-            "parameters: Tables 6 and 7 of the SEC paper [44]".to_string(),
-            "optimizer: the SEC parameter-selection notebook of [44] (SEC-Parameter-Selection-v1-q32.ipynb, not part \
+            "parameters: Tables 6 and 7 of the SEC paper [46]".to_string(),
+            "optimizer: the SEC parameter-selection notebook of [46] (SEC-Parameter-Selection-v1-q32.ipynb, not part \
              of this artifact)"
                 .to_string(),
             format!("matrix: {} (fixtures/author/{})", matrix.source.notebook, geo.fixture),
@@ -415,7 +415,7 @@ pub fn sec_only_profile(matrix: &AuthorMatrix, row: &published::SecOnlyRow) -> R
         q_h: 1,
         q_sign_global: queries,
         q_participate: queries / geo.n as u128,
-        accounting: "Q = 2^64 leakage queries in the multi-query privacy model of [44]; there is no random oracle"
+        accounting: "Q = 2^64 leakage queries in the multi-query privacy model of [46]; there is no random oracle"
             .to_string(),
         sigma_s: widths.sigma_s,
         sigma_big_r: widths.sigma_big_r,
@@ -425,7 +425,7 @@ pub fn sec_only_profile(matrix: &AuthorMatrix, row: &published::SecOnlyRow) -> R
         admissibility: Admissibility::Paper { beta_lambda: geo.beta_lambda, omega_lambda: geo.omega_lambda },
         recon: ReconParams::DEFAULT,
         evidence: Evidence {
-            claim: "Privacy-only parameters of the SEC paper [44] (multi-query privacy and kernel smoothing, with \
+            claim: "Privacy-only parameters of the SEC paper [46] (multi-query privacy and kernel smoothing, with \
                     kappa_MLWE = kappa + 1). No signature claim: the modulus is not sized for an MSIS bound and \
                     signing is disabled for this profile."
                 .to_string(),

@@ -1,6 +1,6 @@
 """SEC: dealing, reconstruction vectors and the coefficient checks.
 
-Section 2.4 of the paper, and the SEC paper [44]:
+Section 2.4 of the paper, and the SEC paper [46]:
 
   * SEC.Deal_pp(s), Eq. (1): S = G [s^T; R] = g s^T + G_hat R, so party i holds
     s_i = g_i s + sum_j G_hat[i][j] R_j.
@@ -9,7 +9,7 @@ Section 2.4 of the paper, and the SEC paper [44]:
   * Public coefficient checks (Item 3): lambda^T G_T = e_1^T, |lambda|_inf <=
     beta_lambda and wt(lambda) <= omega_lambda are exact integer checks.
 
-reconstruction_vector() is [44, Algorithm 1] with the conventions of the
+reconstruction_vector() is [46, Algorithm 1] with the conventions of the
 profile identifier "xlatsec-recon-v1": an exact row HNF gives a witness and
 the saturated left kernel K_T; an exact integral LLL (Cohen, Algorithm 2.6.7)
 reduces K_T; Babai's nearest plane and a greedy l_inf refinement shorten the
@@ -265,7 +265,7 @@ def linf(v):
 
 
 def greedy_reduce_linf(lam, basis, passes, window):
-    """Greedy l_inf refinement ([44, Algorithm 1], second stage).
+    """Greedy l_inf refinement ([46, Algorithm 1], second stage).
 
     For each basis vector b in order: target the coordinate j of largest |lam_j|
     (smallest index on ties), scan alpha in [alpha0 - window, alpha0 + window]
@@ -302,7 +302,7 @@ def greedy_reduce_linf(lam, basis, passes, window):
 
 
 def reconstruction_vector(g_t, delta_num=99, delta_den=100, passes=2, window=2):
-    """[44, Algorithm 1] for the rows g_t of G: a short lambda with
+    """[46, Algorithm 1] for the rows g_t of G: a short lambda with
     lambda^T g_t = e_1^T, or None if the set is not authorized."""
     if not g_t or not g_t[0]:
         return None

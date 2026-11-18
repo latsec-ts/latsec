@@ -3,9 +3,9 @@
 
 Sources
 -------
-* The paper, Sections 4.1 and 7 and Appendix M.
-* parameter-search/LaTSEC-Parameter-Selection-v2.2-fixedtailbound.ipynb of this
-  artifact (inputs: cell 56; expected outputs: cells 194-243).
+* The paper, Sections 4.1 and 7 and Appendix N of the full version.
+* parameter-search/LaTSEC-Parameter-Selection-v2.3-fixedtailbound+privacy.ipynb of this
+  artifact (inputs: cell 56; expected outputs: cells 194-246).
 
 What it does
 ------------
@@ -47,7 +47,7 @@ RING_DEGREE = 512
 SEED_BITS = 256
 KIB_BITS = Decimal(8 * 1024)
 
-# Matrix constants at the full float64 precision used by the v2.2 notebook (cell 56).
+# Matrix constants at the full float64 precision used by the v2.3 notebook (cell 56).
 # beta_kp and gamma_kp are from SEC-Parameter-Selection-v1.ipynb (same matrices).
 GEOMETRY = {
     40: dict(
@@ -74,7 +74,7 @@ GEOMETRY = {
 QUERY_BUDGETS = {128: (2**63, 2**62), 192: (2**64, 2**64), 256: (2**64, 2**64)}
 
 # Published values: Table 4 (four decimals from notebook cell 204), exact primes
-# (cell 198), Table 5 (cell 243), and the estimator outputs of the notebook (cell 194).
+# (cell 198), Table 5 (cell 246), and the estimator outputs of the notebook (cell 194).
 PUBLISHED = [
     dict(n=40, kappa=128, ell=12, p=6, b_q=61, q=2**61 - 10239,
          lg_sigma_s=15.4641, lg_sigma_r=45.0134, lg_b1=51.5813, lg_b2=58.5470,
@@ -163,7 +163,7 @@ def challenge_weight(kappa, degree=RING_DEGREE):
 
 
 def theta_closed(kappa_tail, dim):
-    """[44, Eqs. (64)-(66)] (Section 4.1, item 3): 1 + sqrt(2 kappa ln2 / N)."""
+    """[46, Eqs. (64)-(66)] (Section 4.1, item 3): 1 + sqrt(2 kappa ln2 / N)."""
     return 1 + (2 * Decimal(kappa_tail) * LN2 / Decimal(dim)).sqrt()
 
 
@@ -271,7 +271,7 @@ def solve(n, kappa, ell, theta=theta_closed, threshold_scale=Decimal(1)):
 
 def kernel_smoothing_ratio(sol, extra_bits=SEC_EPS_EXTRA_BITS):
     """sigma_eff divided by the explicit kernel-smoothing threshold
-    ([44, Eq. (56)]), eps' = 2^-(kappa + extra_bits)."""
+    ([46, Eq. (56)]), eps' = 2^-(kappa + extra_bits)."""
     geo = GEOMETRY[sol["n"]]
     geometry_factor = (
         1 + min(Decimal(geo["k_p"]), geo["beta_kp"] ** 2) / geo["gamma_kp"] ** 2).sqrt()
@@ -281,7 +281,7 @@ def kernel_smoothing_ratio(sol, extra_bits=SEC_EPS_EXTRA_BITS):
 
 
 def sizes_kib(sol, p, b_q):
-    """(vk, ak_i, ak, sk_i, sig_i, sig, comm_i) in KiB, Appendix M."""
+    """(vk, ak_i, ak, sk_i, sig_i, sig, comm_i) in KiB, Appendix N of the full version."""
     dim, kappa = sol["dim"], sol["kappa"]
     c_exp = GEOMETRY[sol["n"]]["c_exp"]
     challenge_bits = Decimal(sol["omega_c"]) + lg(comb(RING_DEGREE, sol["omega_c"]))

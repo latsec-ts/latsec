@@ -1,6 +1,6 @@
 """recon_stats.py -- reconstruction-vector statistics per signer-set size.
 
-For each size s, sets of s parties are tested with [44, Algorithm 1]
+For each size s, sets of s parties are tested with [46, Algorithm 1]
 (sec.reconstruction_vector): how many are authorized, the distributions of
 |lambda|_inf, wt(lambda) and |lambda|_1, and how many authorized sets a
 predicate (beta_lambda, omega_lambda) rejects.  These are the quantities behind

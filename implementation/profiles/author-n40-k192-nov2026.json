@@ -5,7 +5,7 @@
   "description": "LaTSEC, n = 40, kappa = 192: Table 4 of the paper on its SEC matrix",
   "provenance": [
     "parameters: Tables 4 and 5 of the paper",
-    "optimizer inputs and exact prime: parameter-search/LaTSEC-Parameter-Selection-v2.2-fixedtailbound.ipynb",
+    "optimizer inputs and exact prime: parameter-search/LaTSEC-Parameter-Selection-v2.3-fixedtailbound+privacy.ipynb",
     "matrix: parameter-search/SEC-geometry/MatrixResult-40-19-3.ipynb (fixtures/author/G-40-19-3.json)",
     "widths recomputed by src/params.rs (port of the notebook's optimizer)"
   ],
@@ -164,8 +164,8 @@
     "recon_statistics": {
       "observed_linf_max": 4,
       "observed_weight_max": 24,
-      "pipeline": "the SageMath pipeline of [44] (Sage LLL, passes = window = 2)",
-      "note": "Sampled maxima over the sets tested in [44]. The enforced bounds are beta_lambda = observed + 1 and omega_lambda slightly above the observed weight. Rejection rates under this crate's reconstruction algorithm must be measured separately."
+      "pipeline": "the SageMath pipeline of [46] (Sage LLL, passes = window = 2)",
+      "note": "Sampled maxima over the sets tested in [46]. The enforced bounds are beta_lambda = observed + 1 and omega_lambda slightly above the observed weight. Rejection rates under this crate's reconstruction algorithm must be measured separately."
     },
     "estimates": [
       {

@@ -2,9 +2,9 @@
   "format": "latsec-profile-v1",
   "id": "functional-n20-d16",
   "category": "functional",
-  "description": "Small functional fixture: a 20 x 10 SEC matrix of [44], ring degree 16",
+  "description": "Small functional fixture: a 20 x 10 SEC matrix of [46], ring degree 16",
   "provenance": [
-    "matrix: MatrixResult-20-9-3.ipynb of the SEC paper [44] (not part of this artifact) (fixtures/author)",
+    "matrix: MatrixResult-20-9-3.ipynb of the SEC paper [46] (not part of this artifact) (fixtures/author)",
     "all other values chosen by hand for testing in src/builder.rs"
   ],
   "kappa": 128,
@@ -25,7 +25,7 @@
     "k_c_det": 16,
     "matrix_name": "author-20-9-3",
     "matrix_source": {
-      "notebook": "MatrixResult-20-9-3.ipynb of the SEC paper [44] (not part of this artifact)",
+      "notebook": "MatrixResult-20-9-3.ipynb of the SEC paper [46] (not part of this artifact)",
       "cells": {
         "expander": 57,
         "g": 5,

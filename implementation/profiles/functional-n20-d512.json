@@ -2,9 +2,9 @@
   "format": "latsec-profile-v1",
   "id": "functional-n20-d512",
   "category": "functional",
-  "description": "Full-degree functional fixture: a 20 x 10 SEC matrix of [44], d = 512, 66-bit prime, wide masks",
+  "description": "Full-degree functional fixture: a 20 x 10 SEC matrix of [46], d = 512, 66-bit prime, wide masks",
   "provenance": [
-    "matrix: MatrixResult-20-9-3.ipynb of the SEC paper [44] (not part of this artifact) (fixtures/author)",
+    "matrix: MatrixResult-20-9-3.ipynb of the SEC paper [46] (not part of this artifact) (fixtures/author)",
     "all other values chosen by hand for testing in src/builder.rs"
   ],
   "kappa": 128,
@@ -25,7 +25,7 @@
     "k_c_det": 16,
     "matrix_name": "author-20-9-3",
     "matrix_source": {
-      "notebook": "MatrixResult-20-9-3.ipynb of the SEC paper [44] (not part of this artifact)",
+      "notebook": "MatrixResult-20-9-3.ipynb of the SEC paper [46] (not part of this artifact)",
       "cells": {
         "expander": 57,
         "g": 5,

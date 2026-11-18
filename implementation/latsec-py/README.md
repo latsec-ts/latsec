@@ -1,7 +1,7 @@
 # latsec-py: the LaTSEC test-vector generator
 
 A Python implementation of SEC and LaTSEC written to be read next to the paper;
-`[44]` is the SEC paper, by its number in the paper's bibliography. It
+`[46]` is the SEC paper, by its number in the paper's bibliography. It
 favours readability over speed. It was written independently of the Rust
 implementation in [`../latsec-rs`](../latsec-rs) and agrees with it byte for byte:
 it reproduces every profile in [`../profiles`](../profiles) and every test vector
@@ -12,16 +12,16 @@ in [`../fixtures/kat`](../fixtures/kat).
 | `xof.py` | §3.1 | SHAKE256 with domain separation and framed inputs; seeded randomness; uniform integers |
 | `sampler.py` | §2.1 | The discrete Gaussian sampler of Canonne, Kamath and Steinke, in exact integer arithmetic with bounded statistical error |
 | `ring.py` | §2.1, §3.1 | `R_q` and its NTT, the public matrix `A = [I_p \| A']`, the challenge set `C` and sample-in-ball |
-| `sec.py` | §2.4 | `SEC.Deal`, `SEC.Rec`, the coefficient checks, and Algorithm 1 of [44] in exact integer arithmetic (HNF, integral LLL, Babai, greedy) |
+| `sec.py` | §2.4 | `SEC.Deal`, `SEC.Rec`, the coefficient checks, and Algorithm 1 of [46] in exact integer arithmetic (HNF, integral LLL, Babai, greedy) |
 | `codec.py` | §7.3 | Canonical encodings: residues, Golomb–Rice coded Gaussians, the ranked challenge (`b_c` bits) |
 | `profiles.py` | Table 2, §4.1 | Profiles: derived bounds, Golomb–Rice parameters, digest |
 | `latsec.py` | Figure 1 | `Keygen`, the predicate `P`, `ShareSign_1..3`, `PartialVerify`, `Combine`, `Verify` |
 | `params.py` | §7.1–7.2 | The width optimizer of the parameter-selection notebook at 60 digits, with regression against Tables 4 and 5 |
 | `build_profiles.py` | §7 | Re-derives every stored profile from the published inputs |
 | `vectors.py` | — | The test-vector generator and checker |
-| `matrix_check.py` | §2.4 | Rank, `k_p`, expansion, peeling ([44, Algorithm 3]), planted witnesses, float64 matrix constants |
+| `matrix_check.py` | §2.4 | Rank, `k_p`, expansion, peeling ([46, Algorithm 3]), planted witnesses, float64 matrix constants |
 | `recon_stats.py` | §7.1 | Reconstruction-vector statistics per signer-set size |
-| `test_latsec.py` | — | Unit tests, with expected values from hand computation, the paper, or the SageMath pipeline of [44] |
+| `test_latsec.py` | — | Unit tests, with expected values from hand computation, the paper, or the SageMath pipeline of [46] |
 
 Party indices are zero-based: party `i` of the manuscript is index `i - 1`.
 
@@ -57,7 +57,7 @@ python3 recon_stats.py ../fixtures/author/G-40-19-3.json --sizes 26..27 \
   stored dyadic widths can depend on the last bits.
 - **Reconstruction.** `recon_stats.py` draws signer sets exactly as
   `latsec recon-stats` does, so both report the same counts. Both reproduce the
-  SageMath pipeline of [44] on the reference sets of `../fixtures/sage`.
+  SageMath pipeline of [46] on the reference sets of `../fixtures/sage`.
 
 This is a reference implementation: it is variable-time and keeps secrets in
 ordinary Python integers.

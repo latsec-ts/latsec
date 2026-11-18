@@ -1,4 +1,4 @@
-//! SEC on its own at full degree, with the standalone parameter sets of the SEC paper [44]
+//! SEC on its own at full degree, with the standalone parameter sets of the SEC paper [46]
 //! and the 32-bit hard-core modulus `q = 2^32 - 10239`.
 
 mod common;

@@ -30,7 +30,7 @@ commands:
       Reconstruction-vector statistics per set size with this crate's algorithm.
   recon-compare --matrix FILE --reference FILE
       Compare this crate's reconstruction vectors with a reference file written
-      by tools/gen_recon_fixtures.py (the SageMath pipeline of [44]).
+      by tools/gen_recon_fixtures.py (the SageMath pipeline of [46]).
   demo --profile FILE [--size T | --set I,J,...] [--seed TEXT]
       Trusted key generation, one signing session and verification.
   measure --profile FILE [--sessions N] [--size T] [--seed TEXT] [--json FILE]
@@ -1010,7 +1010,7 @@ fn matrix_check(args: &Args) -> CliResult<()> {
     let started = Instant::now();
     let peeling = certify_peeling(&graph, matrix.k_p);
     println!(
-        "  peeling ([44, Algorithm 3]): {} subsets of size <= {} in {:.2} s: {}",
+        "  peeling ([46, Algorithm 3]): {} subsets of size <= {} in {:.2} s: {}",
         peeling.subsets_checked,
         peeling.max_size,
         started.elapsed().as_secs_f64(),
