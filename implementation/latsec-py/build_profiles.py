@@ -10,7 +10,7 @@ compared with the stored file:
   * author variants: the same widths with q the largest NTT-friendly prime
     below 2^(b_q - 1) (our variant, not a parameter set of the paper);
   * functional profiles: the hand-chosen test parameters below;
-  * SEC-only profiles: the privacy-only sets of the SEC paper [44] for Q = 2^64 and a
+  * SEC-only profiles: the privacy-only sets of the SEC paper [46] for Q = 2^64 and a
     32-bit modulus, widths from solve_sec_widths() below.
 
 Widths and tail factors are rounded upward to dyadic rationals exactly as
@@ -65,7 +65,7 @@ def width(sigma):
 
 
 def theta_closed(kappa_tail, dim):
-    """The closed-form tail factor 1 + sqrt(2 kappa ln 2 / N) ([44, Eqs.
+    """The closed-form tail factor 1 + sqrt(2 kappa ln 2 / N) ([46, Eqs.
     (64)-(66)]), in double precision."""
     return 1.0 + math.sqrt(2.0 * (kappa_tail * LN_2) / dim)
 
@@ -191,7 +191,7 @@ def _minimize(cx, cy, cz, a, b, c, p, q):
     return x * q, y * q, z * z_unit
 
 
-# --- The SEC-only width selection ([44, Section 6]) -------------------------------------
+# --- The SEC-only width selection ([46, Section 6]) -------------------------------------
 
 def golden(f, lo, hi):
     """Golden-section minimum of a unimodal function: 200 steps."""
@@ -332,7 +332,7 @@ def functional_records(fixtures):
 
 
 def sec_only_records(fixtures):
-    """The sets of the SEC paper [44] with Q = 2^64 leakage queries, 32-bit modulus, kappa = 128."""
+    """The sets of the SEC paper [46] with Q = 2^64 leakage queries, 32-bit modulus, kappa = 128."""
     out = []
     kappa, ell, queries = 128, 6, 1 << 64
     omega_c = next(w for w in range(1, 513) if 2 ** w * math.comb(512, w) >= 2 ** kappa)

@@ -1,5 +1,5 @@
 //! Revalidation of the published SEC matrices:
-//! shape, rank, expansion, [44, Algorithm 3] peeling, planted supports and witnesses,
+//! shape, rank, expansion, [46, Algorithm 3] peeling, planted supports and witnesses,
 //! and the float64 matrix constants used by the parameter selection.
 
 mod common;
@@ -45,7 +45,7 @@ fn check_structure(tag: &str) {
     assert_eq!(BigUint::from(expansion.subsets_checked), subsets_up_to(m.n, expansion.max_size));
     let expansion_time = started.elapsed();
 
-    // [44, Algorithm 3] succeeds on every set of at most k_p parties: a constructive
+    // [46, Algorithm 3] succeeds on every set of at most k_p parties: a constructive
     // certificate of the unimodular-minor condition.
     let started = Instant::now();
     let peeling = certify_peeling(&graph, m.k_p);
@@ -78,7 +78,7 @@ fn check_structure(tag: &str) {
         assert_eq!(g.select_rows(&small).left_mul_vec(&ours), e1);
     }
     // Parties outside every planted support get a fixed value in {-1, 0, 1}
-    // ([44, Algorithm 2]).  It is zero except for two parties of the n = 60 instance.
+    // ([46, Algorithm 2]).  It is zero except for two parties of the n = 60 instance.
     let free_nonzero: Vec<usize> = (0..m.n).filter(|&i| !seen[i] && m.g[i][0] != 0).collect();
     assert_eq!(free_nonzero, if m.n == 60 { vec![24, 59] } else { vec![] });
 }

@@ -35,7 +35,7 @@ decoded.
     party's own messages before it looks at anyone else's.
   * A list without one entry per signer, and a signer's own message coming
     back altered, are malformed invocations: consistent delivery is assumed,
-    and an honest signer must not blame itself.  (Appendix H has no such
+    and an honest signer must not blame itself.  (Appendix I of the full version has no such
     assertion in ShareSign_3.)
 
 Integers: polynomials over R are lists of Python ints; over R_q, residues in
@@ -149,7 +149,7 @@ class Scheme:
     # -- SEC ------------------------------------------------------------------
 
     def recon_vector(self, act):
-        """[44, Algorithm 1] for G_act, or None if act is not authorized."""
+        """[46, Algorithm 1] for G_act, or None if act is not authorized."""
         g_t = [self.profile.g_rows[i] for i in act]
         return reconstruction_vector(g_t, *self.profile.recon_params)
 

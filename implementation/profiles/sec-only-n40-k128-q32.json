@@ -2,10 +2,10 @@
   "format": "latsec-profile-v1",
   "id": "sec-only-n40-k128-q32",
   "category": "sec-only",
-  "description": "SEC alone, n = 40, kappa = 128, Q = 2^64, q = 2^32 - 10239: Table 7 of the SEC paper [44]",
+  "description": "SEC alone, n = 40, kappa = 128, Q = 2^64, q = 2^32 - 10239: Table 7 of the SEC paper [46]",
   "provenance": [
-    "parameters: Tables 6 and 7 of the SEC paper [44]",
-    "optimizer: the SEC parameter-selection notebook of [44] (SEC-Parameter-Selection-v1-q32.ipynb, not part of this artifact)",
+    "parameters: Tables 6 and 7 of the SEC paper [46]",
+    "optimizer: the SEC parameter-selection notebook of [46] (SEC-Parameter-Selection-v1-q32.ipynb, not part of this artifact)",
     "matrix: parameter-search/SEC-geometry/MatrixResult-40-19-3.ipynb (fixtures/author/G-40-19-3.json)",
     "widths recomputed by src/params.rs (solve_sec_widths)"
   ],
@@ -84,7 +84,7 @@
     "q_h": "1",
     "q_sign_global": "18446744073709551616",
     "q_participate": "461168601842738790",
-    "accounting": "Q = 2^64 leakage queries in the multi-query privacy model of [44]; there is no random oracle"
+    "accounting": "Q = 2^64 leakage queries in the multi-query privacy model of [46]; there is no random oracle"
   },
   "gaussian": {
     "convention": "sigma-exp-half",
@@ -150,7 +150,7 @@
   "xof": "shake256-framed-v1",
   "codec_version": 3,
   "evidence": {
-    "claim": "Privacy-only parameters of the SEC paper [44] (multi-query privacy and kernel smoothing, with kappa_MLWE = kappa + 1). No signature claim: the modulus is not sized for an MSIS bound and signing is disabled for this profile.",
+    "claim": "Privacy-only parameters of the SEC paper [46] (multi-query privacy and kernel smoothing, with kappa_MLWE = kappa + 1). No signature claim: the modulus is not sized for an MSIS bound and signing is disabled for this profile.",
     "matrix_constants": {
       "alpha_kp": 0.464255900330341,
       "norm_g_hat": 4.4316793740317,

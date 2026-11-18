@@ -20,7 +20,7 @@ pub struct MatrixSource {
     pub index_base: String,
 }
 
-/// An SEC matrix of the paper or of the SEC paper [44], with its planted supports.
+/// An SEC matrix of the paper or of the SEC paper [46], with its planted supports.
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq)]
 pub struct AuthorMatrix {
     pub format: String,
@@ -37,7 +37,7 @@ pub struct AuthorMatrix {
     pub k_p: usize,
     /// The matrix `G = [g | G_hat]`, one row per party.
     pub g: Vec<Vec<i64>>,
-    /// Zero-based planted supports ([44, Algorithm 2]).
+    /// Zero-based planted supports ([46, Algorithm 2]).
     pub planted_supports: Vec<Vec<usize>>,
     /// The witness of each planted support, in the order of its support.
     pub planted_witnesses: Vec<Vec<i64>>,

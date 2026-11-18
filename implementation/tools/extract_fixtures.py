@@ -17,7 +17,7 @@ The notebooks are looked for in ``../parameter-search/SEC-geometry``, where the
 artifact has them, unless ``--notebooks`` names another directory.  The artifact
 carries the notebooks of the two instances the paper uses, (n, k) = (40, 20) and
 (60, 40).  The two small matrices used by the functional test profiles, (10, 6) and
-(20, 10), are instances of the SEC paper [44] whose notebooks are not part of the
+(20, 10), are instances of the SEC paper [46] whose notebooks are not part of the
 artifact: when the notebook of one of these two is not found, its existing fixture
 is kept, with its recorded cell digest, and reported.  The notebooks of the two
 instances of the paper are required: if one is missing, the script stops before
@@ -42,7 +42,7 @@ OUT_DIR = os.path.join(REPO, "fixtures", "author")
 
 # (n, m, c_exp) of the instances to extract.
 INSTANCES = [(10, 5, 3), (20, 9, 3), (40, 19, 3), (60, 39, 3)]
-# Instances of the SEC paper [44] whose notebooks the artifact does not carry; only
+# Instances of the SEC paper [46] whose notebooks the artifact does not carry; only
 # for these may an existing fixture stand in for a missing notebook.
 WITHOUT_NOTEBOOK = {(10, 5, 3), (20, 9, 3)}
 
@@ -169,7 +169,7 @@ def keep_existing(n, m, c_exp, path):
         fixture = json.load(handle)
     old = fixture["source"]
     fixture["source"] = {
-        "notebook": f"{notebook_name(n, m, c_exp)} of the SEC paper [44] (not part of this artifact)",
+        "notebook": f"{notebook_name(n, m, c_exp)} of the SEC paper [46] (not part of this artifact)",
         "cells": old["cells"],
         "cell_sources_sha256": old["cell_sources_sha256"],
         "index_base": old["index_base"],

@@ -1,4 +1,4 @@
-//! Reconstruction against reference vectors from the SageMath pipeline of [44]
+//! Reconstruction against reference vectors from the SageMath pipeline of [46]
 //! (`tools/gen_recon_fixtures.py`).
 
 use std::time::Instant;
@@ -113,7 +113,7 @@ fn check_matrix(tag: &str) {
 }
 
 /// Sets whose reconstruction vector exceeds the maxima observed in the samples
-/// of [44].  SageMath's pipeline and this crate agree on every one of them.
+/// of [46].  SageMath's pipeline and this crate agree on every one of them.
 fn check_notable(tag: &str, observed: (u64, usize), enforced: (u64, usize), expected: &[(usize, u64, usize)]) {
     let author = AuthorMatrix::load(fixture_path(&format!("author/G-{tag}.json"))).unwrap();
     let g = author.matrix();

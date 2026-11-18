@@ -19,7 +19,7 @@ For a fixed, seeded selection of party sets of each author matrix in
 * Sage's LLL-reduced kernel basis,
 * the vector after exact Babai and the final reconstruction vector.
 
-The functions below follow the SageMath pipeline of the SEC paper [44], as given in
+The functions below follow the SageMath pipeline of the SEC paper [46], as given in
 its reconstruction-vector notebooks (``hnf_witness``, ``kernel_basis``,
 ``babai_exact``, ``greedy_reduce_linf``, ``construct_lambda``), with
 ``passes = window = 2``.  The script is self-contained: it needs SageMath and the
@@ -57,7 +57,7 @@ EXTRA = {"G-40-19-3": [(20, 6), (22, 6)], "G-60-39-3": [(40, 4), (43, 4)]}
 
 
 # Sets found with `latsec recon-stats` (seed 20261106, 100,000 sets per size) whose
-# reconstruction vector exceeds the maxima observed in [44]: (4, 24) for n = 40
+# reconstruction vector exceeds the maxima observed in [46]: (4, 24) for n = 40
 # and (8, 42) for n = 60.  They are listed explicitly so that the SageMath pipeline's
 # result for them is recorded.
 NOTABLE = {

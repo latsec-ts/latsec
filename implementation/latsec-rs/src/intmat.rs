@@ -3,7 +3,7 @@
 //! Everything here is public-data arithmetic over arbitrary-precision integers:
 //! row Hermite normal forms with a transformation, saturated integer kernels, an
 //! exact integral LLL, Babai's nearest-plane algorithm and the greedy `l_inf`
-//! refinement of [44, Algorithm 1].
+//! refinement of [46, Algorithm 1].
 //!
 //! # Conventions
 //!
@@ -475,7 +475,7 @@ pub fn babai_nearest_plane(basis: &[Row], gso: &Gso, target: &[BigInt]) -> Row {
     w
 }
 
-/// Greedy `l_inf` refinement ([44, Algorithm 1], second stage).
+/// Greedy `l_inf` refinement ([46, Algorithm 1], second stage).
 ///
 /// For each basis vector in order, the coordinate of largest absolute value (smallest
 /// index on ties) is targeted.  All shifts `alpha` in `[alpha0 - window, alpha0 + window]`
@@ -539,7 +539,7 @@ pub struct ReconParams {
 }
 
 impl ReconParams {
-    /// `delta = 99/100`, `passes = window = 2`, as in the statistics of [44].
+    /// `delta = 99/100`, `passes = window = 2`, as in the statistics of [46].
     pub const DEFAULT: ReconParams = ReconParams { delta: LllDelta::DEFAULT, passes: 2, window: 2 };
 }
 
@@ -567,7 +567,7 @@ fn e1(ncols: usize) -> Row {
     v
 }
 
-/// [44, Algorithm 1]: the reconstruction vector of the rows `g_t`.
+/// [46, Algorithm 1]: the reconstruction vector of the rows `g_t`.
 ///
 /// Returns `None` if `e_1^T` is not in the integer row span (the set is not
 /// authorized).  Otherwise the result satisfies `lambda^T g_t = e_1^T`, which is
@@ -771,7 +771,7 @@ mod tests {
         bs
     }
 
-    /// `babai_exact` of the SageMath pipeline of [44], over the rationals.
+    /// `babai_exact` of the SageMath pipeline of [46], over the rationals.
     fn babai_rational(basis: &[Row], target: &[BigInt]) -> Row {
         let bs = rational_gso(basis);
         let half = BigRational::new(BigInt::one(), BigInt::from(2));

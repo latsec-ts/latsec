@@ -4,10 +4,10 @@ For a matrix fixture fixtures/author/G-*.json (G = [g | G_hat], one row per
 party) this rechecks, exactly and exhaustively:
 
   * rank: G has full column rank k over Z;
-  * k_p = ceil(2 (1 - eps) floor(gamma n)) - 1, the privacy threshold of [44];
+  * k_p = ceil(2 (1 - eps) floor(gamma n)) - 1, the privacy threshold of [46];
   * expansion: |N(S)| >= ceil((1 - eps) c_exp |S|) for every set S of at most
     floor(gamma n) parties, N(S) the columns of G_hat that meet S;
-  * peeling ([44, Algorithm 3]): on every set U of at most k_p parties, taking
+  * peeling ([46, Algorithm 3]): on every set U of at most k_p parties, taking
     the smallest column that meets exactly one remaining row, and removing that
     row, empties U.  This certifies the unimodular minor M_U of Item 5;
   * the planted witnesses: lambda^T G_U = e_1^T on the fixture's planted sets.
@@ -69,7 +69,7 @@ def check_expansion(masks, c_exp, gamma, eps):
 
 
 def peel(masks, subset):
-    """[44, Algorithm 3]: the peeling columns in order, or None if stuck."""
+    """[46, Algorithm 3]: the peeling columns in order, or None if stuck."""
     rows = [masks[i] for i in subset]
     columns = []
     while rows:
@@ -157,7 +157,7 @@ def main():
     ok &= violation is None
     started = time.time()
     checked, stuck = check_peeling(masks, k_p)
-    print(f"  peeling ([44, Algorithm 3]): {checked} subsets of size <= {k_p} in {time.time() - started:.1f} s: "
+    print(f"  peeling ([46, Algorithm 3]): {checked} subsets of size <= {k_p} in {time.time() - started:.1f} s: "
           + ("all succeed" if stuck is None else f"STUCK on {stuck}"))
     ok &= stuck is None
     for support, witness in zip(m["planted_supports"], m["planted_witnesses"]):

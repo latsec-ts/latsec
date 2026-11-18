@@ -1,5 +1,5 @@
 //! Structural checks on an SEC matrix: expansion of the underlying bipartite graph,
-//! [44, Algorithm 3] peeling, and float64 spectral statistics of its submatrices.
+//! [46, Algorithm 3] peeling, and float64 spectral statistics of its submatrices.
 //!
 //! The expansion and peeling checks are exact and exhaustive.  The spectral
 //! statistics reproduce the float64 values of the SEC-geometry notebooks; they are **not** certified
@@ -147,7 +147,7 @@ pub fn certify_expansion(graph: &Graph, c_exp: usize, gamma: Ratio, eps: Ratio) 
     ExpansionReport { max_size, subsets_checked: checked, violation }
 }
 
-/// [44, Algorithm 3] on the rows `set`: repeatedly takes the smallest column that meets
+/// [46, Algorithm 3] on the rows `set`: repeatedly takes the smallest column that meets
 /// exactly one remaining row and removes that row.  Returns the columns in the
 /// order they were chosen, or `None` if peeling gets stuck.
 pub fn peel(graph: &Graph, set: &[usize]) -> Option<Vec<usize>> {
@@ -176,11 +176,11 @@ pub fn peel(graph: &Graph, set: &[usize]) -> Option<Vec<usize>> {
 pub struct PeelingReport {
     pub max_size: usize,
     pub subsets_checked: u64,
-    /// A set on which [44, Algorithm 3] gets stuck, if one exists.
+    /// A set on which [46, Algorithm 3] gets stuck, if one exists.
     pub failure: Option<Vec<usize>>,
 }
 
-/// Runs [44, Algorithm 3] on every nonempty set of at most `max_size` parties.  Success
+/// Runs [46, Algorithm 3] on every nonempty set of at most `max_size` parties.  Success
 /// on all of them is a constructive certificate that every such `G_hat_U` has a
 /// unimodular `|U| x |U|` minor.
 pub fn certify_peeling(graph: &Graph, max_size: usize) -> PeelingReport {

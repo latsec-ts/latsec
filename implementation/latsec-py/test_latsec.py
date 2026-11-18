@@ -1,7 +1,7 @@
 """Unit tests of the Python implementation.  Run: python3 -m unittest -v test_latsec
 
 Expected values come from hand computation (codec), from the paper (b_c of
-Section 7.3, the challenge weights), or from the SageMath pipeline of [44]
+Section 7.3, the challenge weights), or from the SageMath pipeline of [46]
 (fixtures/sage, written by tools/gen_recon_fixtures.py).  Interoperability
 with the Rust implementation is tested by vectors.py --verify.
 """
@@ -88,7 +88,7 @@ class CodecTest(unittest.TestCase):
 
 
 class ReconstructionTest(unittest.TestCase):
-    """Against the SageMath pipeline of [44] (fixtures/sage)."""
+    """Against the SageMath pipeline of [46] (fixtures/sage)."""
 
     def check_matrix(self, tag):
         g = fixture("author", f"G-{tag}.json")["g"]
@@ -120,7 +120,7 @@ class ReconstructionTest(unittest.TestCase):
         self.check_matrix("40-19-3")
 
     def test_notable_sets(self):
-        # Sets beyond the maxima observed in [44]: this implementation and Sage
+        # Sets beyond the maxima observed in [46]: this implementation and Sage
         # agree on each; at n = 40 one 27-party set has weight 26 > omega_lambda = 25.
         for tag, expected in (("40-19-3", [(26, 4, 25), (26, 5, 21), (27, 1, 26), (27, 2, 25), (27, 2, 25)]),
                               ("60-39-3", [(46, 5, 44), (46, 9, 37)])):

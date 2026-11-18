@@ -1,5 +1,5 @@
 #!/bin/sh
-# Run the measurements of Section 8 and Appendix O: the six parameter sets of
+# Run the measurements of Section 8 and Appendix P of the full version: the six parameter sets of
 # Table 4 at three signing-set sizes each, one after the other, on one core.
 #
 #     tools/run_benchmarks.sh [PREFIX [CPU]]

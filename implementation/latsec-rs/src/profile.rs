@@ -180,7 +180,7 @@ pub enum Category {
     Author,
     /// A variant we derived from an author instance.
     AuthorVariant,
-    /// A standalone SEC parameter set of the SEC paper [44].  Privacy-only: such a
+    /// A standalone SEC parameter set of the SEC paper [46].  Privacy-only: such a
     /// profile supports dealing, reconstruction and leakage responses, and makes
     /// no signature claim.
     SecOnly,
@@ -1013,7 +1013,7 @@ mod tests {
     use super::*;
 
     fn toy_inputs() -> ProfileInputs {
-        // A 10 x 6 SEC matrix of [44] (fixtures/author/G-10-5-3.json).
+        // A 10 x 6 SEC matrix of [46] (fixtures/author/G-10-5-3.json).
         let g = vec![
             vec![1, 0, -1, 1, 1, 0],
             vec![1, -1, 0, 1, 1, 0],

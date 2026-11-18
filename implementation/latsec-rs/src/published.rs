@@ -5,10 +5,10 @@
 //! Sources:
 //!
 //! * The paper, Tables 4 and 5 (three decimals).
-//! * `parameter-search/LaTSEC-Parameter-Selection-v2.2-fixedtailbound.ipynb` of
+//! * `parameter-search/LaTSEC-Parameter-Selection-v2.3-fixedtailbound+privacy.ipynb` of
 //!   this artifact: matrix constants (cell 56), exact primes (cell 198), widths to
-//!   four decimals (cell 204), sizes (cell 243) and estimator outputs (cell 194).
-//! * The SEC parameter-selection notebook of the SEC paper [44]
+//!   four decimals (cell 204), sizes (cell 246) and estimator outputs (cell 194).
+//! * The SEC parameter-selection notebook of the SEC paper [46]
 //!   (`SEC-Parameter-Selection-v1.ipynb`, not part of this artifact) for `beta_kp`
 //!   and `gamma_kp` of the same matrices; `parameter-search/SEC-geometry/` of this
 //!   artifact recomputes `gamma_kp`.
@@ -28,14 +28,14 @@ pub struct Geometry {
     pub k: usize,
     pub k_p: usize,
     pub k_c: usize,
-    /// Deterministic authorization threshold from the exhaustive checks of [44].
+    /// Deterministic authorization threshold from the exhaustive checks of [46].
     pub k_c_det: usize,
     pub c_exp: usize,
     pub beta_g: u32,
     /// Enforced bounds of the admissibility predicate.
     pub beta_lambda: u32,
     pub omega_lambda: u32,
-    /// Largest values observed with the SageMath pipeline of [44].
+    /// Largest values observed with the SageMath pipeline of [46].
     pub beta_lambda_observed: u32,
     pub omega_lambda_observed: u32,
     pub constants: MatrixConstants,
@@ -227,7 +227,7 @@ pub fn published_row(n: usize, kappa: u32) -> Option<&'static PublishedRow> {
     PUBLISHED_ROWS.iter().find(|r| r.n == n && r.kappa == kappa)
 }
 
-/// The inputs the v2.2 notebook feeds its optimizer for a published row.
+/// The inputs the v2.3 notebook feeds its optimizer for a published row.
 pub fn width_inputs(row: &PublishedRow) -> WidthInputs {
     let geo = geometry(row.n);
     let (q_h, q_sign) = query_budgets(row.kappa);
@@ -249,7 +249,7 @@ pub fn width_inputs(row: &PublishedRow) -> WidthInputs {
     }
 }
 
-/// One SEC-only parameter set of the SEC paper [44].
+/// One SEC-only parameter set of the SEC paper [46].
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SecOnlyRow {
     pub n: usize,
@@ -281,7 +281,7 @@ const fn sec_only_row(
     SecOnlyRow { n, kappa, with_queries, ell, modulus_bits, lg_sigma_s, lg_sigma_big_r, lg_sigma_r, sizes_kib }
 }
 
-/// Tables 6 and 7 of the SEC paper [44]: widths to four decimals from the outputs
+/// Tables 6 and 7 of the SEC paper [46]: widths to four decimals from the outputs
 /// of its notebooks `SEC-Parameter-Selection-v1.ipynb` (moduli of the LaTSEC
 /// sets) and `SEC-Parameter-Selection-v1-q32.ipynb` (`q = 2^32 - 10239`), cells
 /// 210 and 221.  The notebooks are not part of this artifact.

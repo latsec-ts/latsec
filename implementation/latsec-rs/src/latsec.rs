@@ -1,5 +1,5 @@
 //! The three-round LaTSEC threshold signature: Figure 1 of the paper
-//! and its full specification (Appendix H).
+//! and its full specification (Appendix I of the full version).
 //!
 //! # Session input and the admissibility predicate
 //!
@@ -59,7 +59,7 @@
 //! * Messages from outside `act` and duplicates are faults of the delivery layer
 //!   and stay invocation errors, as does a signer's own message coming back
 //!   altered: consistent delivery is assumed, and an honest signer must not
-//!   blame itself.  (Appendix H has no such assertion in `ShareSign_3`.)
+//!   blame itself.  (Appendix I of the full version has no such assertion in `ShareSign_3`.)
 //!
 //! # Model
 //!

@@ -1,5 +1,5 @@
 //! Parameter formula engine: tail factors, smoothing thresholds, the width optimizer
-//! of the parameter-selection notebook, and the ideal sizes of Appendix M.
+//! of the parameter-selection notebook, and the ideal sizes of Appendix N of the full version.
 //!
 //! This is an `f64` port of `tools/latsec_params.py`, which is the 60-digit
 //! reference.  It is analysis code: it produces real-valued widths that
@@ -378,7 +378,7 @@ fn minimize(problem: Problem) -> Result<(f64, f64, f64, SolverCase)> {
 }
 
 /// Minimizes `B1` under the multi-query privacy (MQ) and abort-key (AK) precision
-/// constraints, as the v2.2 notebook does.
+/// constraints, as the v2.3 notebook does.
 pub fn solve_widths(inputs: &WidthInputs) -> Result<WidthSolution> {
     let problem = problem_of(inputs);
     let (x_s, x_big_r, x_r, case) = minimize(problem)?;
@@ -458,7 +458,7 @@ pub fn manuscript_conditions(inputs: &WidthInputs, sol: &WidthSolution) -> Manus
     }
 }
 
-/// `sigma_eff` divided by the explicit kernel-smoothing threshold ([44, Eq. (56)]),
+/// `sigma_eff` divided by the explicit kernel-smoothing threshold ([46, Eq. (56)]),
 /// with `eps' = 2^-eps_bits` for the solver's `inputs.eps_bits`.  The condition
 /// holds when the ratio is at least one.
 pub fn kernel_smoothing_ratio(inputs: &WidthInputs, sigma_eff: f64) -> f64 {
@@ -476,7 +476,7 @@ pub fn kernel_smoothing_ratio_at(inputs: &WidthInputs, sigma_eff: f64, eps_bits:
     sigma_eff / (geometry * (log_term / (2.0 * PI * PI)).sqrt())
 }
 
-/// The ideal (entropy-coded) sizes of Appendix M, in bits.
+/// The ideal (entropy-coded) sizes of Appendix N of the full version, in bits.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IdealSizes {
     pub vk: f64,
@@ -495,7 +495,7 @@ impl IdealSizes {
     }
 }
 
-/// Appendix M for the given dimensions, widths and bounds.
+/// Appendix N of the full version for the given dimensions, widths and bounds.
 #[allow(clippy::too_many_arguments)]
 pub fn ideal_sizes(
     d: usize,
@@ -527,7 +527,7 @@ pub fn ideal_sizes(
     }
 }
 
-/// Inputs of the SEC-only width selection of the SEC paper [44] (no signature scheme,
+/// Inputs of the SEC-only width selection of the SEC paper [46] (no signature scheme,
 /// hence no abort-key constraint).
 #[derive(Clone, Debug, PartialEq)]
 pub struct SecWidthInputs {
@@ -573,7 +573,7 @@ impl SecWidthSolution {
     }
 }
 
-/// The SEC-only width selection ([44, Section 6]; `SEC-Parameter-Selection-v1`).
+/// The SEC-only width selection ([46, Section 6]; `SEC-Parameter-Selection-v1`).
 ///
 /// With `x = 1/sigma_s^2`, `y = 1/sigma_R^2`, `z = 1/sigma_r^2`, the constraints are
 /// multi-query privacy `x + a y + b z <= P` and kernel smoothing `y + c z <= K`.  The

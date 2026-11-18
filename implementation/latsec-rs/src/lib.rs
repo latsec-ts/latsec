@@ -1,6 +1,6 @@
 //! Research prototype of SEC secret sharing and the LaTSEC threshold signature.
 //!
-//! The algorithms are those of Figure 1 and Appendix H of the paper; the README of
+//! The algorithms are those of Figure 1 and Appendix I of the full version of the paper; the README of
 //! the implementation lists the modules.  Nothing here is hardened or audited.
 
 pub mod builder;

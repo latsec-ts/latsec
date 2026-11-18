@@ -3,7 +3,7 @@
 //! `|lambda|_1`, and how many authorized sets a predicate rejects.
 //!
 //! This is offline analysis.  The numbers describe this crate's reconstruction
-//! algorithm; they are not interchangeable with the SageMath statistics of [44].
+//! algorithm; they are not interchangeable with the SageMath statistics of [46].
 
 use std::collections::BTreeMap;
 use std::time::Instant;
