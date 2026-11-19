@@ -10,8 +10,7 @@ below as [46], its number in the paper's bibliography):
 - [`latsec-py/`](latsec-py): Python, the readable test-vector generator, organized
   by the sections of the paper.
 
-Sections, tables, figures and appendices named without a source are those of the paper; “the full version” is the preprint, LaTSEC-preprint.pdf
-The submitted paper and its full version number Sections 1 to 8, Tables 1 to 7, Figure 1 and Appendices A to F alike; the later appendices are in the full version only and are cited as such.
+Sections, tables, figures and appendices named without a source are those of the paper; "the full version" is the preprint, [`LaTSEC-preprint.pdf`](../LaTSEC-preprint.pdf).
 
 Both read the same profiles and agree byte for byte on every test vector. They are
 correctness references, not hardened implementations:
