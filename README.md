@@ -6,7 +6,7 @@ Artifact for the paper "LaTSEC: Lattice-Based Threshold Signatures with Native N
 
 - `parameter-search/`: the notebook that selects the parameter sets of Section 7 and estimates their security, the notebooks of the two SEC instances, and the estimator calibration scripts. See [`parameter-search/readme.md`](parameter-search/readme.md).
 - `implementation/`: the Rust and Python implementations of Section 8, their parameter profiles and test vectors, the recorded measurements, and the scripts that produce the tables of Section 8, of Appendix F, and of the extended benchmarks (Appendix P of the full version). See [`implementation/README.md`](implementation/README.md).
-- `LaTSEC-full-version.pdf`: the full version of the paper, with the deferred proofs, the complete specification, and the detailed size and storage analyses.
+- `LaTSEC-preprint.pdf`: the preprint of the paper, with the deferred proofs, the complete specification, and the detailed size and storage analyses.
 
 ## Software prerequisites
 
