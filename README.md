@@ -1,6 +1,25 @@
-# LaTSEC
+# LaTSEC: Lattice-Based Threshold Signatures with Native Non-Interactive Identifiable Abort and Compact Per-Party Storage
 
-Artifact for the paper "LaTSEC: Lattice-Based Threshold Signatures with Native Non-Interactive Identifiable Abort and Compact Per-Party Storage".
+This repository accompanies the following paper.
+
+> Muhammad Arzaki, Muhammed F. Esgin, Markku-Juhani O. Saarinen, Amin Sakzad, and Ron Steinfeld.
+> **"LaTSEC: Lattice-Based Threshold Signatures with Native Non-Interactive Identifiable Abort and Compact Per-Party Storage"**.
+> IACR Cryptology ePrint Archive, Paper 2026/2948, 2026.
+> <https://eprint.iacr.org/2026/2948>
+
+**Citation**
+
+```bibtex
+@misc{cryptoeprint:2026/2948,
+      author = {Muhammad Arzaki and Muhammed F. Esgin and Markku-Juhani O. Saarinen and Amin Sakzad and Ron Steinfeld},
+      title = {{LaTSEC}: Lattice-Based Threshold Signatures with Native Non-Interactive Identifiable Abort and Compact Per-Party Storage},
+      howpublished = {Cryptology {ePrint} Archive, Paper 2026/2948},
+      year = {2026},
+      url = {https://eprint.iacr.org/2026/2948}
+}
+```
+
+The software is available under the [MIT License](LICENSE).
 
 ## Contents
 
